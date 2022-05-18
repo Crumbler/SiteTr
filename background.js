@@ -1,7 +1,10 @@
 
+import { translate } from '/translate.js';
+
 
 chrome.runtime.onInstalled.addListener(onInstalled);
 chrome.tabs.onUpdated.addListener(onTabUpdated);
+
 
 const mainPattern = new URLPattern(
     'http{s}?://*/*'
@@ -21,10 +24,6 @@ function onTabUpdated(tabId, changeInfo, tab) {
 
     chrome.scripting.executeScript({
         target: { tabId },
-        func: onPageLoaded
+        func: translate
     });
-}
-
-function onPageLoaded() {
-    console.log('background script message: ');
 }

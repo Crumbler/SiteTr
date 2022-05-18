@@ -1,4 +1,6 @@
 
+import { translate } from '/translate.js';
+
 
 const translateButton = document.getElementById('translate'),
     settingsButton = document.getElementById('settings');
@@ -15,9 +17,10 @@ async function onTranslateClick() {
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        function: () => console.log('Translate'),
+        function: translate,
     });
 }
+
 
 async function onSettingsClick() {
     chrome.tabs.create({
