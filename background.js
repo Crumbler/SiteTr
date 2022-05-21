@@ -1,9 +1,8 @@
 
-import { translate } from '/translate.js';
 
 
 chrome.runtime.onInstalled.addListener(onInstalled);
-chrome.tabs.onUpdated.addListener(onTabUpdated);
+//chrome.tabs.onUpdated.addListener(onTabUpdated);
 
 
 const mainPattern = new URLPattern(
@@ -24,6 +23,6 @@ function onTabUpdated(tabId, changeInfo, tab) {
 
     chrome.scripting.executeScript({
         target: { tabId },
-        func: translate
+        files: [ '/translate.js' ]
     });
 }

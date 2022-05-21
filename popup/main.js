@@ -1,12 +1,10 @@
 
-import { translate } from '/translate.js';
-
 
 const translateButton = document.getElementById('translate'),
-    settingsButton = document.getElementById('settings');
+    manageButton = document.getElementById('manage');
 
 translateButton.addEventListener('click', onTranslateClick);
-settingsButton.addEventListener('click', onSettingsClick);
+manageButton.addEventListener('click', onManageClick);
 
 
 async function onTranslateClick() {
@@ -15,15 +13,26 @@ async function onTranslateClick() {
         currentWindow: true
     });
 
+    if (tab.url.startsWith('chrome')) {
+        alert('Can\'t use extensions on Chrome URLs.');
+        return;
+    }
+
+    window.close();
+
+    await chrome.storage.local.set({
+        currentUrl: tab.url
+    });
+
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        function: translate,
+        files: [ '/translate.js' ]
     });
 }
 
 
-async function onSettingsClick() {
+async function onManageClick() {
     chrome.tabs.create({
-        url: '/settings/index.html'
+        url: '/manage/index.html'
     });
 }
