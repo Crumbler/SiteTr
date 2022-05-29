@@ -1,6 +1,13 @@
 
+body {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
-
-#alter {
-  margin: 50px;
+button {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 100%;
 }
