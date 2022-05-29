@@ -1,0 +1,34 @@
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+}
+
+div, button, input {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+}
+
+body > div {
+    padding: 20px;
+}
+
+#header {
+    border-right: 5px solid black;
+}
+
+.header-block {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#main {
+    
+}

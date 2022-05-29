@@ -26,7 +26,7 @@ async function onTranslateClick() {
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        files: [ '/translate.js' ]
+        files: ['/translate.js']
     });
 }
 
